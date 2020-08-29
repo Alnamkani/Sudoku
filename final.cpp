@@ -20,7 +20,7 @@ void set_colum(int colum[][SIZE], int sudoku[][SIZE]);
 void set_box(int box[][SIZE], int sudoku[][SIZE]);
 void print_sudoku(int sudoku[][SIZE]);
 int which_box(int x, int y);
-vector<vector<vector<int>>> which_digit(int row[][SIZE], int colum[][SIZE], int box[][SIZE], int sudoku[][SIZE]);
+vector<vector<vector<int> > > which_digit(int row[][SIZE], int colum[][SIZE], int box[][SIZE], int sudoku[][SIZE]);
 
 int main()
 {
@@ -57,7 +57,7 @@ bool solution(int sudoku[][SIZE], int row[][SIZE], int colum[][SIZE], int box[][
   set_colum(colum, sudoku); // ^^ same 
   set_box(box,     sudoku); //^^ same 
   
-  vector<vector<vector<int>>> pos; //this is a three dimensional vector that has all of the possible value that we can put in one cell 
+  vector<vector<vector<int> > > pos; //this is a three dimensional vector that has all of the possible value that we can put in one cell 
   
   pos = which_digit(row, colum, box, sudoku); // set the vector
   
@@ -80,17 +80,17 @@ bool solution(int sudoku[][SIZE], int row[][SIZE], int colum[][SIZE], int box[][
   
 }
 
-vector<vector<vector<int>>> which_digit(int row[][SIZE], int colum[][SIZE], int box[][SIZE], int sudoku[][SIZE])
+vector<vector<vector<int> > > which_digit(int row[][SIZE], int colum[][SIZE], int box[][SIZE], int sudoku[][SIZE])
 {
   /*
   this function return a three dimensional array with [y][x].size() = all the possible values to place in this cell
   */
 	
-  vector<vector<vector<int>>> what_to_put;
+  vector<vector<vector<int> > > what_to_put;
   
   for (int i = 0; i < SIZE; i++) 
   {
-    vector<vector<int>> y;
+    vector<vector<int> > y;
 	
     for(int j = 0; j < SIZE; j++)
     {
